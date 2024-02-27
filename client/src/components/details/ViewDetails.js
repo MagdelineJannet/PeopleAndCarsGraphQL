@@ -2,15 +2,19 @@ import { useQuery } from "@apollo/client";
 import { Button, Table } from "antd";
 import { Link } from "react-router-dom";
 import { GET_PERSON_WITH_CARS } from "../../graphql/queries";
-import React from "react";
+import React,{useEffect} from "react";
 import { useParams } from 'react-router-dom';
 
 const ViewDetails = () => {
   const { id } = useParams(); // Use useParams hook to get route parameters
 
-  const { loading, error, data } = useQuery(GET_PERSON_WITH_CARS, {
+  const { loading, error, data,refetch } = useQuery(GET_PERSON_WITH_CARS, {
     variables: { personId: id }, // Pass the personId variable
   });
+
+  useEffect(() => {
+    refetch();
+  }, [id]); // refetch when id changes
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;

@@ -1,7 +1,6 @@
 import { useQuery } from "@apollo/client";
-import { GET_CARS, GET_CARS_BY_PERSON_ID } from "../../graphql/queries";
+import {GET_CARS_BY_PERSON_ID } from "../../graphql/queries";
 import CarCard from "../listItems/CarCard";
-import AddCar from "../forms/AddCar";
 
 const PeopleAndCar = ({ personId }) => {
  

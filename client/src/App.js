@@ -4,7 +4,6 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Title from './components/layout/Title';
 import AddPerson from './components/forms/AddPerson';
 import People from './components/lists/People';
-import AddCar from './components/forms/AddCar';
 import ViewDetails from './components/details/ViewDetails';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -23,7 +22,7 @@ const App = () => {
             <div className="App">
               <Title />
               <AddPerson />
-              <AddCar />
+              {/* <AddCar /> */}
               <People />
             </div>
           } />

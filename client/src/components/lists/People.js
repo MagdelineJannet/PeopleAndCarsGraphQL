@@ -2,6 +2,7 @@ import { useQuery } from "@apollo/client";
 import { GET_PEOPLE } from "../../graphql/queries";
 import { List } from "antd"
 import PeopleCard from "../listItems/PeopleCard";
+import AddCar from "../forms/AddCar";
 
 const People = () => {
     const styles = getStyles()
@@ -15,7 +16,8 @@ const People = () => {
 
 return (
     <div>
-        <h3 style={styles.heading}>Records</h3>
+         {data.people.length > 0 && <AddCar />} 
+         {data.people.length > 0 && <h3 style={styles.heading}>Records</h3>}        
         <List grid={{gutter:20, column:1}} style={styles.list}>
             {data.people.map(({id, firstName, lastName}) => (
                 <List.Item key={id}>

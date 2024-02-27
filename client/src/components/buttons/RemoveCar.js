@@ -2,7 +2,7 @@ import {DeleteOutlined} from '@ant-design/icons'
 import { useMutation } from '@apollo/client'
 import { GET_CARS, REMOVE_CAR } from '../../graphql/queries'
 import filter from 'lodash.filter';
-const RemoveCar = ({id,refetch}) => {
+const RemoveCar = ({id,personId,refetch}) => {
        const [removeCar] = useMutation(REMOVE_CAR, {
         update(cache, { data: { removeCar } }) {
             try {
@@ -16,8 +16,7 @@ const RemoveCar = ({id,refetch}) => {
                         cars: updatedCar,
                         __typename: 'Cars'
                     }
-                });
-                                
+                })                                                
             } catch (error) {
                 console.error('Error updating cache:', error);
             }

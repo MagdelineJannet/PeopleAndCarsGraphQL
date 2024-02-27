@@ -31,7 +31,7 @@ const CarCard = props => {
             ) : (
                 <Card style={styles.card} actions={[
                 <EditOutlined key='edit' onClick={handleButtonClick}/>,
-                <RemoveCar id={id} refetch={refetch}/>]}>
+                <RemoveCar id={id} personId={personId} refetch={refetch}/>]}>
                     {year} {make} {model} {formatPrice(price)}
                 </Card>
             )}
